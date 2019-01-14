@@ -1,88 +1,131 @@
-# Project Title
+# Customer Management System
 
-One Paragraph of project description goes here
+Customer Management System helps you to manage the business activity of your entity. The menus are: clients, persons, dashboards.
+You can create your custom dashboards using native sql scrips. Basic operations for all entities. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Clone or download a copy of this project.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+This project requires Java 1.8, MySQL and Maven.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+After MySQL instalation, it is required to create a dabase:
 
 ```
-Give the example
+CREATE DATABSE cms;
 ```
-
-And repeat
-
+Execute the content of `.sql` files, such as: 
 ```
-until finished
+chart_type.sql
+country.sql
+data.sql
+first_name.sql
+last_name.sql
+unit_industry.sql
+unit_type.sql
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
+All this files contains initial data. Just copy and paste the file's content Go to downloaded folder and create the build (you should have something similar like the following):
+```
+SDR:customer-management-system sdrahnea$ mvn clean compile package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.oms:customer-management-system >-------------------
+[INFO] Building customer-management-system 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ customer-management-system ---
+[INFO] Deleting /my-projects/customer-management-system/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ customer-management-system ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ customer-management-system ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 69 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ customer-management-system ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 127 source files to /my-projects/customer-management-system/target/classes
+[INFO] /my-projects/customer-management-system/src/main/java/com/oms/controller/AbstractController.java: Some input files use unchecked or unsafe operations.
+[INFO] /my-projects/customer-management-system/src/main/java/com/oms/controller/AbstractController.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ customer-management-system ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ customer-management-system ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 69 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ customer-management-system ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ customer-management-system ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /my-projects/customer-management-system/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ customer-management-system ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ customer-management-system ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ customer-management-system ---
+[INFO] Building jar: /my-projects/customer-management-system/target/customer-management-system-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:1.5.7.RELEASE:repackage (default) @ customer-management-system ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.183 s
+[INFO] Finished at: 2019-01-10T10:14:15+02:00
+[INFO] ------------------------------------------------------------------------
+SDR:customer-management-system sdrahnea$ 
+```
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+This project does not have any kind of tests :).
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Once the build (the jar file) is ready the application can be run. Please, use the following command to run the application:
+```
+SDR:customer-management-system sdrahnea$ java -jar target/customer-management-system-0.0.1-SNAPSHOT.jar
+```
+If was used default configuration then the application should be available at this url: http://localhost:8081/oms/login.xhtml 
+Use the following credentials: username: admin, password: 123.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Java](https://www.java.com/en/download/) - Java technology allows you to work and play in a secure computing environment. Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few.
+* [PrimeFaces](https://www.primefaces.org/) - PrimeFaces is a popular open source framework for JavaServer Faces featuring over 100 components, touch optimized mobilekit, client side validation, theme engine and more.
+* [Spring Security](https://spring.io/projects/spring-security) - Spring Security is a powerful and highly customizable authentication and access-control framework. It is the de-facto standard for securing Spring-based applications.
+* [Spring Boot](https://spring.io/projects/spring-boot) - Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
+* [Spring Data](https://spring.io/projects/spring-data) - Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store.
+* [Spring Data JPA](https://spring.io/projects/spring-data-jpa) - Spring Data JPA, part of the larger Spring Data family, makes it easy to easily implement JPA based repositories. This module deals with enhanced support for JPA based data access layers. It makes it easier to build Spring-powered applications that use data access technologies.
+* [MySQL](https://www.mysql.com/) - MySQL is the world's most popular open source database. Whether you are a fast growing web property, technology ISV or large enterprise, MySQL can cost-effectively help you deliver high performance, scalable database applications.
+* [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information. 
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Sergiu Drahnea** - *Initial work* - [LinkedIn](https://www.linkedin.com/in/sergiu-drahnea-563745123)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+## Donation
+* [PayPal](https://www.paypal.me/sdrahnea) - any donation is welcomed in case that you was pleased with this work :p
 

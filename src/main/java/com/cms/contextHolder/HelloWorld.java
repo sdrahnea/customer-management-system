@@ -15,8 +15,8 @@ import javax.faces.bean.ManagedBean;
 @AllArgsConstructor
 public class HelloWorld {
 
-    private String firstName="Ion";
-    private String lastName="Cojocari";
+    private String firstName="";
+    private String lastName="";
 
     public String showGreeting(){
         return "Hi "+firstName+" "+lastName;
