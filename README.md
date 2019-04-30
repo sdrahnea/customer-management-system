@@ -34,7 +34,7 @@ SDR:customer-management-system sdrahnea$ mvn clean compile package
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ------------------< com.oms:customer-management-system >-------------------
-[INFO] Building customer-management-system 0.0.1-SNAPSHOT
+[INFO] Building customer-management-system 0.0.2
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ customer-management-system ---
