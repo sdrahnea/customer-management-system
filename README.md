@@ -34,7 +34,7 @@ SDR:customer-management-system sdrahnea$ mvn clean compile package
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ------------------< com.oms:customer-management-system >-------------------
-[INFO] Building customer-management-system 0.0.2
+[INFO] Building customer-management-system 0.0.2-SNAPSHOT
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ customer-management-system ---
@@ -74,7 +74,7 @@ SDR:customer-management-system sdrahnea$ mvn clean compile package
 [INFO] No tests to run.
 [INFO] 
 [INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ customer-management-system ---
-[INFO] Building jar: /my-projects/customer-management-system/target/customer-management-system-0.0.1-SNAPSHOT.jar
+[INFO] Building jar: /my-projects/customer-management-system/target/customer-management-system-0.0.2-SNAPSHOT.jar
 [INFO] 
 [INFO] --- spring-boot-maven-plugin:1.5.7.RELEASE:repackage (default) @ customer-management-system ---
 [INFO] ------------------------------------------------------------------------
@@ -94,7 +94,7 @@ This project does not have any kind of tests :).
 
 Once the build (the jar file) is ready the application can be run. Please, use the following command to run the application:
 ```
-SDR:customer-management-system sdrahnea$ java -jar target/customer-management-system-0.0.1-SNAPSHOT.jar
+SDR:customer-management-system sdrahnea$ java -jar target/customer-management-system-0.0.2-SNAPSHOT.jar
 ```
 If was used default configuration then the application should be available at this url: http://localhost:8081/oms/login.xhtml 
 Use the following credentials: username: admin, password: 123.
