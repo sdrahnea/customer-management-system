@@ -10,7 +10,7 @@
 
         <p:panel header="Dashboard list">
 
-            <h:dataTable id="dashboardTable"
+            <p:dataTable id="dashboardTable"
                          binding="#{table}"
                          value="#{dashboardController.list}"
                          var="dashboard"
@@ -106,7 +106,7 @@
                                      value="Delete"
                                      class="btn btn-danger"/>
                 </p:column>
-            </h:dataTable>
+            </p:dataTable>
 
             <h:commandButton action="dashboardView"
                              value="Create New Dashboard"

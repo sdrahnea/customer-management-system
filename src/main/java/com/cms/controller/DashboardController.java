@@ -12,9 +12,6 @@ import javax.faces.bean.ManagedBean;
  */
 @RestController
 @RequestMapping(value = "/dashboard")
-@ManagedBean
-@Data
-@NoArgsConstructor
 public class DashboardController extends AbstractController<Dashboard> {
 
 }
