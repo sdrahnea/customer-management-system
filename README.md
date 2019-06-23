@@ -40,6 +40,11 @@ last_name.sql
 unit_industry.sql
 unit_type.sql
 ```
+Note: in case that you run the application starting with MySQL 8.0.4, please execute the following query:
+```
+ALTER USER '${USER}'@'localhost' IDENTIFIED WITH mysql_native_password BY '${PASSWORD}';
+-- where ${USER} and ${PASSWORD} should be provided. 
+```
 All this files contains initial data. Just copy and paste the file's content Go to downloaded folder and create the build (you should have something similar like the following):
 ```
 SDR:customer-management-system sdrahnea$ mvn clean compile package
