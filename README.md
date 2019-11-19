@@ -21,11 +21,11 @@ Clone or download a copy of this project.
 
 ### Prerequisites
 
-This project requires Java 1.8, MySQL and Maven.
+This project requires Java 1.8, MySQL (or PostgreSQL) and Maven.
 
 ### Installing
 
-After MySQL instalation, it is required to create a dabase:
+After MySQL (or PostgreSQL) instalation, it is required to create a database:
 
 ```
 CREATE DATABSE cms;
@@ -125,6 +125,7 @@ Use the following credentials: username: admin, password: 123.
 * [Spring Data](https://spring.io/projects/spring-data) - Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store.
 * [Spring Data JPA](https://spring.io/projects/spring-data-jpa) - Spring Data JPA, part of the larger Spring Data family, makes it easy to easily implement JPA based repositories. This module deals with enhanced support for JPA based data access layers. It makes it easier to build Spring-powered applications that use data access technologies.
 * [MySQL](https://www.mysql.com/) - MySQL is the world's most popular open source database. Whether you are a fast growing web property, technology ISV or large enterprise, MySQL can cost-effectively help you deliver high performance, scalable database applications.
+* [PostgreSQL](https://www.postgresql.org/) - PostgreSQL, also known as Postgres, is a free and open-source relational database management system (RDBMS) emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users. It is the default database for macOS Server, and is also available for Linux, FreeBSD, OpenBSD, and Windows. 
 * [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information. 
 
 ## Do you have any issue?
@@ -141,7 +142,7 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
-* **Sergiu Drahnea** - *Initial work* - [LinkedIn](https://www.linkedin.com/in/sergiu-drahnea-563745123)
+* **Sergiu Drahnea** - *Initial work* - [LinkedIn](https://www.linkedin.com/in/sergiu-drahnea/)
 
 ## License
 
