@@ -1,4 +1,4 @@
-package com.cms.repositories;
+package com.cms.repository;
 
 import com.cms.model.security.SecurityUser;
 import org.springframework.data.jpa.repository.JpaRepository;

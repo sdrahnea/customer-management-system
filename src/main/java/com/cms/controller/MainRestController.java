@@ -1,7 +1,7 @@
-package com.cms.controllers;
+package com.cms.controller;
 
 import com.cms.model.security.SecurityUser;
-import com.cms.services.impl.SecurityUserService;
+import com.cms.service.security.impl.SecurityUserService;
 import org.springframework.web.bind.annotation.*;
 
 /**

@@ -1,7 +1,7 @@
-package com.cms.services.impl;
+package com.cms.service.security.impl;
 
 import com.cms.model.security.SecurityUser;
-import com.cms.repositories.SecurityUserDto;
+import com.cms.repository.SecurityUserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

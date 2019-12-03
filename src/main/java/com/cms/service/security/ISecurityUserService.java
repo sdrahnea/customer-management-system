@@ -1,4 +1,4 @@
-package com.cms.services;
+package com.cms.service.security;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
