@@ -4,16 +4,16 @@ Customer Management System helps you to manage the business activity of your ent
 You can create your custom dashboards using native sql scrips. Basic operations for all entities. 
 
 ## Summary
-* 1. Getting Started (Prerequisites, Installing)
-* 2. Running the tests
-* 3. Deployment
-* 4. Built With
-* 5. Do you have any issue?
-* 6. Contributing
-* 7. Versioning
-* 8. Authors
-* 9. License
-* 10. Donation
+1. Getting Started (Prerequisites, Installing)
+2. Running the tests
+3. Deployment
+4. Built With
+5. Do you have any issue?
+6. Contributing
+7. Versioning
+8. Authors
+9. License
+10. Donation
 
 ## 1. Getting Started
 
