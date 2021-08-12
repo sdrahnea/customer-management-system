@@ -4,26 +4,26 @@ Customer Management System helps you to manage the business activity of your ent
 You can create your custom dashboards using native sql scrips. Basic operations for all entities. 
 
 ## Summary
-* Getting Started (Prerequisites, Installing)
-* Running the tests
-* Deployment
-* Built With
-* Do you have any issue?
-* Contributing
-* Versioning
-* Authors
-* License
-* Donation
+* 1. Getting Started (Prerequisites, Installing)
+* 2. Running the tests
+* 3. Deployment
+* 4. Built With
+* 5. Do you have any issue?
+* 6. Contributing
+* 7. Versioning
+* 8. Authors
+* 9. License
+* 10. Donation
 
-## Getting Started
+## 1. Getting Started
 
 Clone or download a copy of this project.
 
-### Prerequisites
+### 1.1 Prerequisites
 
 This project requires Java 1.8, MySQL (or PostgreSQL) and Maven.
 
-### Installing
+### 1.2 Installing
 
 After MySQL (or PostgreSQL) instalation, it is required to create a database:
 
@@ -103,11 +103,11 @@ SDR:customer-management-system sdrahnea$ mvn clean compile package
 SDR:customer-management-system sdrahnea$ 
 ```
 
-## Running the tests
+## 2. Running the tests
 
 This project does not have any kind of tests :).
 
-## Deployment
+## 3. Deployment
 
 Once the build (the jar file) is ready the application can be run. Please, use the following command to run the application:
 ```
@@ -116,7 +116,7 @@ SDR:customer-management-system sdrahnea$ java -jar target/customer-management-sy
 If was used default configuration then the application should be available at this url: http://localhost:8081/oms/login.xhtml 
 Use the following credentials: username: admin, password: 123.
 
-## Built With
+## 4. Built With
 
 * [Java](https://www.java.com/en/download/) - Java technology allows you to work and play in a secure computing environment. Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few.
 * [PrimeFaces](https://www.primefaces.org/) - PrimeFaces is a popular open source framework for JavaServer Faces featuring over 100 components, touch optimized mobilekit, client side validation, theme engine and more.
@@ -128,26 +128,26 @@ Use the following credentials: username: admin, password: 123.
 * [PostgreSQL](https://www.postgresql.org/) - PostgreSQL, also known as Postgres, is a free and open-source relational database management system (RDBMS) emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users. It is the default database for macOS Server, and is also available for Linux, FreeBSD, OpenBSD, and Windows. 
 * [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information. 
 
-## Do you have any issue?
+## 5. Do you have any issue?
 
 Please contact via LinkedIn account or drop an email (read [LICENSE.md](LICENSE.md) file) or create an issue into project's space.
 
-## Contributing
+## 6. Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
+## 7. Versioning
 
 We use [SemVer](http://semver.org/) for versioning.
 
-## Authors
+## 8. Authors
 
 * **Sergiu Drahnea** - *Initial work* - [LinkedIn](https://www.linkedin.com/in/sergiu-drahnea/)
 
-## License
+## 9. License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Donation
+## 10. Donation
 * [PayPal](https://www.paypal.me/sdrahnea) - any donation is welcomed in case that you was pleased with this work :p
 
