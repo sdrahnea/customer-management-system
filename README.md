@@ -1,153 +1,263 @@
+<div align="center">
+
 # Customer Management System
 
-Customer Management System helps you to manage the business activity of your entity. The menus are: clients, persons, dashboards.
-You can create your custom dashboards using native sql scrips. Basic operations for all entities. 
+**A lightweight, full-stack business management platform built with Spring Boot & PrimeFaces.**
 
-## Summary
-1. Getting Started (Prerequisites, Installing)
-2. Running the tests
-3. Deployment
-4. Built With
-5. Do you have any issue?
-6. Contributing
-7. Versioning
-8. Authors
-9. License
-10. Donation
+[![Java](https://img.shields.io/badge/Java-1.8-orange?logo=openjdk)](https://www.java.com/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-1.5.x-brightgreen?logo=springboot)](https://spring.io/projects/spring-boot)
+[![PrimeFaces](https://img.shields.io/badge/PrimeFaces-JSF-blue)](https://www.primefaces.org/)
+[![Maven](https://img.shields.io/badge/Maven-3.x-red?logo=apachemaven)](https://maven.apache.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL%20%7C%20MySQL-336791?logo=postgresql)](https://www.postgresql.org/)
 
-## 1. Getting Started
+</div>
 
-Clone or download a copy of this project.
+---
 
-### 1.1 Prerequisites
+## What is CMS?
 
-This project requires Java 1.8, MySQL (or PostgreSQL) and Maven.
+Customer Management System (CMS) is a self-hosted, multi-entity business management tool designed for small to medium organizations. It ships a ready-to-use web UI **and** a JSON REST API to manage **clients, contacts, and custom analytics dashboards** — all from a single deployable JAR.
 
-### 1.2 Installing
+**Key capabilities:**
 
-After MySQL (or PostgreSQL) instalation, it is required to create a database:
+- 📋 **Entity management** — full CRUD for clients, persons, industries, types, and countries
+- 📊 **Custom dashboards** — define SQL-backed bar, horizontal-bar, and pie charts through the admin UI; no code changes required
+- 🔒 **Built-in authentication** — Spring Security login with BCrypt-hashed passwords
+- 🔗 **Dual interface** — every feature is accessible via both the PrimeFaces web UI and the REST API simultaneously
+- 📤 **Data export** — one-click XLS, CSV, and XML export on every list view
+
+---
+
+## Table of Contents
+
+1. [Architecture](#architecture)
+2. [Getting Started](#getting-started)
+3. [REST API Examples](#rest-api-examples)
+4. [Built With](#built-with)
+5. [Contributing](#contributing)
+6. [Versioning](#versioning)
+7. [Authors](#authors)
+8. [License](#license)
+9. [Donation](#donation)
+
+---
+
+## Architecture
+
+The application exposes **two parallel interaction layers** backed by the same Spring beans:
 
 ```
-CREATE DATABSE cms;
-```
-Execute the content of `.sql` files, such as: 
-```
-chart_type.sql
-country.sql
-data.sql
-first_name.sql
-last_name.sql
-unit_industry.sql
-unit_type.sql
-```
-Note: in case that you run the application starting with MySQL 8.0.4, please execute the following query:
-```
-ALTER USER '${USER}'@'localhost' IDENTIFIED WITH mysql_native_password BY '${PASSWORD}';
--- where ${USER} and ${PASSWORD} should be provided. 
-```
-All this files contains initial data. Just copy and paste the file's content Go to downloaded folder and create the build (you should have something similar like the following):
-```
-SDR:customer-management-system sdrahnea$ mvn clean compile package
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ------------------< com.oms:customer-management-system >-------------------
-[INFO] Building customer-management-system 0.0.2-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ customer-management-system ---
-[INFO] Deleting /my-projects/customer-management-system/target
-[INFO] 
-[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ customer-management-system ---
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ customer-management-system ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 1 resource
-[INFO] Copying 69 resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ customer-management-system ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 127 source files to /my-projects/customer-management-system/target/classes
-[INFO] /my-projects/customer-management-system/src/main/java/com/oms/controller/AbstractController.java: Some input files use unchecked or unsafe operations.
-[INFO] /my-projects/customer-management-system/src/main/java/com/oms/controller/AbstractController.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ customer-management-system ---
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ customer-management-system ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 1 resource
-[INFO] Copying 69 resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ customer-management-system ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ customer-management-system ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /my-projects/customer-management-system/src/test/resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ customer-management-system ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ customer-management-system ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ customer-management-system ---
-[INFO] Building jar: /my-projects/customer-management-system/target/customer-management-system-0.0.2-SNAPSHOT.jar
-[INFO] 
-[INFO] --- spring-boot-maven-plugin:1.5.7.RELEASE:repackage (default) @ customer-management-system ---
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.183 s
-[INFO] Finished at: 2019-01-10T10:14:15+02:00
-[INFO] ------------------------------------------------------------------------
-SDR:customer-management-system sdrahnea$ 
+┌──────────────────────────────────────────────────────────────┐
+│                         Client Layer                         │
+│   Browser (JSF / PrimeFaces UI)  │  REST client / cURL       │
+└───────────────┬──────────────────┴──────────────┬────────────┘
+                │  Facelets / EL                  │  JSON HTTP
+┌───────────────▼─────────────────────────────────▼────────────┐
+│            Controller Layer  (@RestController + @ManagedBean) │
+│   PersonController · UnitController · DashboardController    │
+│              AbstractController<T>  (CRUD base)              │
+└────────────────────────────┬─────────────────────────────────┘
+                             │
+┌────────────────────────────▼─────────────────────────────────┐
+│            Service Layer  (AbstractService<T>)               │
+│      JPQL findByName  ·  CrudRepository delegation           │
+└────────────────────────────┬─────────────────────────────────┘
+                             │
+┌────────────────────────────▼─────────────────────────────────┐
+│          Repository Layer  (Spring Data CrudRepository)      │
+└────────────────────────────┬─────────────────────────────────┘
+                             │
+                    PostgreSQL  /  MySQL
 ```
 
-## 2. Running the tests
+> **Key design constraint:** `AbstractController` derives entity class names at runtime via `ParameterizedType` reflection. The Java entity class name **must** match the `.xhtml` file prefix — e.g. `Person` → `personList.xhtml`, `personView.xhtml`. Violating this breaks both JSF navigation and JPQL queries.
 
-This project does not have any kind of tests :).
+---
 
-## 3. Deployment
+## Getting Started
 
-Once the build (the jar file) is ready the application can be run. Please, use the following command to run the application:
+### Prerequisites
+
+| Requirement | Version |
+|---|---|
+| Java (JDK) | 1.8 |
+| Maven | 3.x |
+| PostgreSQL **or** MySQL | 9.6+ / 5.7+ |
+
+### 1 · Clone the repository
+
+```bash
+git clone https://github.com/your-org/customer-management-system.git
+cd customer-management-system
 ```
-SDR:customer-management-system sdrahnea$ java -jar target/customer-management-system-0.0.2-SNAPSHOT.jar
+
+### 2 · Set up the database
+
+```sql
+CREATE DATABASE cms;
 ```
-If was used default configuration then the application should be available at this url: http://localhost:8081/oms/login.xhtml 
-Use the following credentials: username: admin, password: 123.
 
-## 4. Built With
+Seed reference data by running all `.sql` files in `src/main/resources/`:
 
-* [Java](https://www.java.com/en/download/) - Java technology allows you to work and play in a secure computing environment. Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few.
-* [PrimeFaces](https://www.primefaces.org/) - PrimeFaces is a popular open source framework for JavaServer Faces featuring over 100 components, touch optimized mobilekit, client side validation, theme engine and more.
-* [Spring Security](https://spring.io/projects/spring-security) - Spring Security is a powerful and highly customizable authentication and access-control framework. It is the de-facto standard for securing Spring-based applications.
-* [Spring Boot](https://spring.io/projects/spring-boot) - Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
-* [Spring Data](https://spring.io/projects/spring-data) - Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store.
-* [Spring Data JPA](https://spring.io/projects/spring-data-jpa) - Spring Data JPA, part of the larger Spring Data family, makes it easy to easily implement JPA based repositories. This module deals with enhanced support for JPA based data access layers. It makes it easier to build Spring-powered applications that use data access technologies.
-* [MySQL](https://www.mysql.com/) - MySQL is the world's most popular open source database. Whether you are a fast growing web property, technology ISV or large enterprise, MySQL can cost-effectively help you deliver high performance, scalable database applications.
-* [PostgreSQL](https://www.postgresql.org/) - PostgreSQL, also known as Postgres, is a free and open-source relational database management system (RDBMS) emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users. It is the default database for macOS Server, and is also available for Linux, FreeBSD, OpenBSD, and Windows. 
-* [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information. 
+```bash
+# PostgreSQL example
+psql -U postgres -d cms -f src/main/resources/chart_type.sql
+psql -U postgres -d cms -f src/main/resources/country.sql
+psql -U postgres -d cms -f src/main/resources/data.sql
+psql -U postgres -d cms -f src/main/resources/first_name.sql
+psql -U postgres -d cms -f src/main/resources/last_name.sql
+psql -U postgres -d cms -f src/main/resources/unit_industry.sql
+psql -U postgres -d cms -f src/main/resources/unit_type.sql
+```
 
-## 5. Do you have any issue?
+> **MySQL 8.0.4+ only:**
+> ```sql
+> ALTER USER '${USER}'@'localhost' IDENTIFIED WITH mysql_native_password BY '${PASSWORD}';
+> ```
+> To switch to MySQL, edit `src/main/resources/application.properties` — comment out the PostgreSQL block and uncomment the MySQL block.
 
-Please contact via LinkedIn account or drop an email (read [LICENSE.md](LICENSE.md) file) or create an issue into project's space.
+### 3 · Build & run
 
-## 6. Contributing
+```bash
+mvn clean compile package
+java -jar target/customer-management-system-0.0.2-SNAPSHOT.jar
+```
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+The application starts at **[http://localhost:8081/cms](http://localhost:8081/cms)**
 
-## 7. Versioning
+| Credential | Value |
+|---|---|
+| Username | `admin` |
+| Password | `123` |
 
-We use [SemVer](http://semver.org/) for versioning.
+---
 
-## 8. Authors
+## REST API Examples
 
-* **Sergiu Drahnea** - *Initial work* - [LinkedIn](https://www.linkedin.com/in/sergiu-drahnea/)
+All entity endpoints follow the same convention: `/{entityName}` maps to full CRUD. The surface is identical for every entity (`/unit`, `/dashboard`, `/country`, etc.).
 
-## 9. License
+### Create a person — `POST /person`
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+**Request**
+```http
+POST http://localhost:8081/cms/person
+Content-Type: application/json
 
-## 10. Donation
-* [PayPal](https://www.paypal.me/sdrahnea) - any donation is welcomed in case that you was pleased with this work :p
+{
+  "name": "John Doe",
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "phone": "+1-555-0100",
+  "notes": "Key contact for Acme Corp"
+}
+```
 
+**Response** `200 OK`
+```json
+{
+  "id": 42,
+  "name": "John Doe",
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "phone": "+1-555-0100",
+  "notes": "Key contact for Acme Corp",
+  "createdDate": "2026-03-29T10:00:00.000+0000",
+  "endDate": null
+}
+```
+
+### List all persons — `GET /person`
+
+**Request**
+```http
+GET http://localhost:8081/cms/person
+```
+
+**Response** `200 OK`
+```json
+[
+  {
+    "id": 42,
+    "name": "John Doe",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1-555-0100",
+    "createdDate": "2026-03-29T10:00:00.000+0000",
+    "endDate": null
+  }
+]
+```
+
+### Register a new user — `POST /api/user/register`
+
+```http
+POST http://localhost:8081/cms/api/user/register
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "password": "s3cur3p@ss"
+}
+```
+
+> The password is automatically BCrypt-hashed before storage. To generate a hash manually, run `SecurityConfig.main()` in `src/main/java/com/cms/configs/SecurityConfig.java`.
+
+### Common REST verbs
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/{entity}` | List all records |
+| `GET` | `/{entity}/{id}` | Fetch a single record |
+| `POST` | `/{entity}` | Create a new record |
+| `PUT` | `/{entity}` | Update an existing record |
+| `DELETE` | `/{entity}/{id}` | Delete a record |
+
+---
+
+## Built With
+
+| Technology | Purpose |
+|---|---|
+| [Spring Boot 1.5.x](https://spring.io/projects/spring-boot) | Application framework & embedded Tomcat |
+| [JoinFaces / PrimeFaces](https://www.primefaces.org/) | JSF component library & UI widgets |
+| [Spring Data JPA](https://spring.io/projects/spring-data-jpa) | Repository abstraction over JPA / Hibernate |
+| [Spring Security](https://spring.io/projects/spring-security) | Authentication & authorization |
+| [PostgreSQL](https://www.postgresql.org/) / [MySQL](https://www.mysql.com/) | Relational database (switchable via config) |
+| [Apache POI](https://poi.apache.org/) | XLS / XLSX data export |
+| [iText](https://itextpdf.com/) | PDF generation |
+| [Lombok](https://projectlombok.org/) | Boilerplate reduction (security models & DTOs) |
+| [Maven](https://maven.apache.org/) | Build & dependency management |
+
+---
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the code of conduct and the process for submitting pull requests.
+
+---
+
+## Versioning
+
+This project uses [SemVer](http://semver.org/) for versioning. For available releases, see the [tags on this repository](../../tags).
+
+---
+
+## Authors
+
+- **Sergiu Drahnea** — *Initial work* — [LinkedIn](https://www.linkedin.com/in/sergiu-drahnea/)
+
+---
+
+## License
+
+This project is licensed under the MIT License — see the [LICENSE.md](LICENSE.md) file for details.
+
+---
+
+## Donation
+
+If this project saved you time, consider a ☕ donation via [PayPal](https://www.paypal.me/sdrahnea). Any contribution is warmly appreciated!
